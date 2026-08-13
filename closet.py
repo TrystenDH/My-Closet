@@ -14,6 +14,25 @@ def open_add_item():
 
     label.pack(pady=20)
 
+    name_label = tk.Label(
+        add_window,
+        text="Name:"
+    )
+
+    name_label.pack()
+
+    name_entry = tk.Entry(add_window)
+
+    name_entry.pack()
+
+    test_button = tk.Button(
+        add_window,
+        text="Test",
+        command=lambda: print(name_entry.get())
+    )
+
+    test_button.pack(pady=10)
+
 window = tk.Tk()
 window .title("My Closet")
 window.geometry("800x600")
