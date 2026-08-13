@@ -1,5 +1,14 @@
 import tkinter as tk
 
+
+def add_item(name_entry, category_variable):
+    item_name = name_entry.get()
+    category = category_variable.get()
+
+    print("Clothing item:", item_name)
+    print("Category:", category)
+
+
 def open_add_item():
     add_window = tk.Toplevel(window)
 
@@ -25,14 +34,41 @@ def open_add_item():
 
     name_entry.pack()
 
-    test_button = tk.Button(
+    category_label = tk.Label(
         add_window,
-        text="Test",
-        command=lambda: print(name_entry.get())
+        text="Category:"
     )
 
-    test_button.pack(pady=10)
+    category_label.pack()
 
+    categories = [
+        "Shirt",
+        "Pants",
+        "Dress",
+        "Jacket",
+        "Shoes",
+        "Accessory"
+    ]
+
+    category_variable = tk.StringVar(add_window)
+
+    category_variable.set("Shirt")
+
+    category_menu = tk.OptionMenu(
+        add_window,
+        category_variable,
+        *categories
+    )
+
+    category_menu.pack()
+
+    add_button = tk.Button(
+        add_window,
+        text="Add Item",
+        command=lambda: add_item(name_entry, category_variable)
+    )
+
+    add_button.pack(pady=10)
 window = tk.Tk()
 window .title("My Closet")
 window.geometry("800x600")
