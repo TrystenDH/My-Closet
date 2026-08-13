@@ -1,6 +1,20 @@
 import tkinter as tk
 
-window = tk.Tk() 
+def open_add_item():
+    add_window = tk.Toplevel(window)
+
+    add_window.title("Add Clothing Item")
+    add_window.geometry("400x400")
+
+    label = tk.Label(
+        add_window,
+        text="Add a Clothing Item",
+        font=("Arial", 18)
+    )
+
+    label.pack(pady=20)
+
+window = tk.Tk()
 window .title("My Closet")
 window.geometry("800x600")
 #---------
@@ -42,7 +56,8 @@ outfits_button.pack(side="left", padx=10)
 
 add_button = tk.Button(
     navigation,
-    text="Add Item"
+    text="Add Item",
+    command=open_add_item
 )
 
 add_button.pack(side="left", padx=10)
